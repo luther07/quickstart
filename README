@@ -31,7 +31,7 @@ Changes to load.sqlite.sql
 ==========================
 
 I left the file name unchanged even though I'm now using mysql.
-Lines in the file load.sqlite.sql which refer to a dbfile or act on the db file are
+Lines in the file "load.sqlite.sql" which refer to a dbfile or act on the db file are
 no longer needed and have been removed.
 
 
