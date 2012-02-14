@@ -1,5 +1,4 @@
 <?php
-
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 set_include_path(implode(PATH_SEPARATOR, array(
@@ -57,10 +56,6 @@ if ('testing' != APPLICATION_ENV) {
 
 // Check to see if we have a database file already
 $options = $bootstrap->getOption('resources');
-$dbFile  = $options['db']['params']['dbname'];
-if (file_exists($dbFile)) {
-    unlink($dbFile);
-}
 
 // this block executes the actual statements that were loaded from
 // the schema file.
@@ -68,7 +63,6 @@ try {
     $schemaSql = file_get_contents(dirname(__FILE__) . '/schema.sqlite.sql');
     // use the connection directly to load sql in batches
     $dbAdapter->getConnection()->exec($schemaSql);
-    chmod($dbFile, 0666);
 
     if ('testing' != APPLICATION_ENV) {
         echo PHP_EOL;

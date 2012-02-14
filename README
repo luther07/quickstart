@@ -1,2 +1,37 @@
+Zend Quickstart Tutorial
+========================
+
 This project is just the application described at this url:
 http://framework.zend.com/manual/en/learning.quickstart.intro.html
+
+Database Server
+===============
+
+I first setup the project with sqlite, per the tutorial.
+Now I've changed the application to use mysql.
+
+Necessary Changes
+=================
+
+The data files are no longer located in quickstart/data/db.
+This change was configured in the application.ini file.
+
+Differences between sqlite and mysql
+====================================
+
+It is my understanding that each mysql server instance has one datadir.
+So it wouldn't make sense to put the application data in quickstart/data/db.
+
+SQL syntax
+==========
+
+I had to make some changes to quickstart/scripts/schema.sqlite.sql.
+
+Changes to load.sqlite.sql
+==========================
+
+I left the file name unchanged even though I'm now using mysql.
+Lines in the file load.sqlite.sql which refer to a dbfile or act on the db file are
+no longer needed and have been removed.
+
+
