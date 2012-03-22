@@ -60,7 +60,7 @@ $options = $bootstrap->getOption('resources');
 // this block executes the actual statements that were loaded from
 // the schema file.
 try {
-    $schemaSql = file_get_contents(dirname(__FILE__) . '/schema.sqlite.sql');
+    $schemaSql = file_get_contents(dirname(__FILE__) . '/schema.mysql.sql');
     // use the connection directly to load sql in batches
     $dbAdapter->getConnection()->exec($schemaSql);
 
@@ -71,7 +71,7 @@ try {
     }
 
     if ($withData) {
-        $dataSql = file_get_contents(dirname(__FILE__) . '/data.sqlite.sql');
+        $dataSql = file_get_contents(dirname(__FILE__) . '/data.mysql.sql');
         // use the connection directly to load sql in batches
         $dbAdapter->getConnection()->exec($dataSql);
         if ('testing' != APPLICATION_ENV) {
